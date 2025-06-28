@@ -6,7 +6,7 @@ services:
       context: ./server
     container_name: server
     expose:
-      - 3000
+      - 5000
     networks:
       - app-network
 
