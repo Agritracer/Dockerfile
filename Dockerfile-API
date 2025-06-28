@@ -8,7 +8,7 @@ RUN go mod tidy
 
 COPY . .
 
-RUN go build -v api .
+RUN go build -o api .
 
 # Stage 2: Deploy
 FROM alpine:latest
