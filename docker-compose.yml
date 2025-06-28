@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: ./server
+    container_name: server
+    expose:
+      - 3000
+    networks:
+      - app-network
+
+  api:
+    build:
+      context: ./api
+    container_name: api
+    expose:
+      - 8080
+    networks:
+      - app-network
+
+  web:
+    build:
+      context: ./web
+    container_name: web
+    expose:
+      - 3000
+    networks:
+      - app-network
+
+  nginx:
+    build:
+      context: ./nginx
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+    depends_on:
+      - server
+      - api
+      - web
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
