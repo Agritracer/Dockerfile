@@ -4,7 +4,7 @@ services:
   server:
     build:
       context: ./
-    dockerfile: ./server/Dockerfile
+      dockerfile: ./server/Dockerfile
     container_name: server
     expose:
       - 5000
@@ -14,7 +14,7 @@ services:
   api:
     build:
       context: ./
-    dockerfile: ./api/Dockerfile
+      dockerfile: ./api/Dockerfile
     container_name: api
     expose:
       - 8080
@@ -24,7 +24,7 @@ services:
   web:
     build:
       context: ./
-    dockerfile: ./web/Dockerfile
+      dockerfile: ./web/Dockerfile
     container_name: web
     expose:
       - 3000
@@ -34,7 +34,7 @@ services:
   nginx:
     build:
       context: ./
-    dockerfile: ./nginx/Dockerfile
+      dockerfile: ./nginx/Dockerfile
     container_name: nginx-proxy
     ports:
       - "80:80"
