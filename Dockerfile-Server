@@ -2,9 +2,9 @@ FROM node:current-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY server/ .
+COPY Enviroment/server/Enviroment /app/.env
 
-COPY . .
 RUN npm install
 
 EXPOSE 5000
