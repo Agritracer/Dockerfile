@@ -26,22 +26,11 @@ services:
       context: ./
       dockerfile: ./web/Dockerfile
     container_name: web
-    expose:
-      - 3000
-    networks:
-      - app-network
-
-  nginx:
-    build:
-      context: ./
-      dockerfile: ./nginx/Dockerfile
-    container_name: nginx-proxy
     ports:
       - "80:80"
     depends_on:
       - server
       - api
-      - web
     networks:
       - app-network
 
